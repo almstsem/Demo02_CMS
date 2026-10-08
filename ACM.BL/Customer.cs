@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CMS.BusinessLayer
 {
@@ -10,31 +7,30 @@ namespace CMS.BusinessLayer
     {
         public Customer()
         {
-
         }
+
         public Customer(int customerId)
         {
-            this.CustomerId = customerId;
+            CustomerId = customerId;
         }
+
         public static int InstanceCount { get; set; }
-        
+
         private string _lastName;
         public string LastName
         {
-            get
-            {
-                // Any code here
-                return _lastName;
-            }
-            set
-            {
-                // Any code here
-                _lastName = value;
-            }
+            get => _lastName;
+            set => _lastName = value;
         }
+
         public string FirstName { get; set; }
         public string EmailAddress { get; set; }
         public int CustomerId { get; private set; }
+
+        // Добавлены адреса согласно схеме
+        public Address HomeAddress { get; set; }
+        public Address WorkAddress { get; set; }
+
         public string FullName
         {
             get
@@ -52,33 +48,6 @@ namespace CMS.BusinessLayer
             }
         }
 
-        /// <summary>
-        /// Retrieve one customer.
-        /// </summary>
-        public Customer Retrieve(int customerId)
-        {
-            // Code that retrieves the defined customer
-            return new Customer();
-        }
-
-        /// <summary>
-        /// Retrieves all customers.
-        /// </summary>
-        public List<Customer> Retrieve()
-        {
-            // Code that retrieves all customers
-            return new List<Customer>();
-        }
-
-        /// <summary>
-        /// Saves the current customer.
-        /// </summary>
-        /// <returns></returns>
-        public bool Save()
-        {
-            // Code that saves the defined customer
-            return true;
-        }
         public bool Validate()
         {
             var isValid = true;

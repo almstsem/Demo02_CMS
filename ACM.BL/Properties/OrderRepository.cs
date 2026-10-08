@@ -1,8 +1,24 @@
 ﻿using System;
 
-public class Class1
+namespace CMS.BusinessLayer
 {
-	public Class1()
-	{
-	}
+    public class OrderRepository
+    {
+        public Order Retrieve(int orderId)
+        {
+            Order order = new Order(orderId);
+
+            if (orderId == 10)
+            {
+                order.OrderDate = new DateTimeOffset(DateTime.Now.Year, 4, 14, 10, 0, 0, new TimeSpan(7, 0, 0));
+            }
+
+            return order;
+        }
+
+        public bool Save(Order order)
+        {
+            return true;
+        }
+    }
 }
